@@ -1,4 +1,4 @@
-* Slay The Spire 用語辞書
+* Slay the Spire 用語辞書
 
 [[file:https://www.shogi-extend.com/cpu-battle][file:https://raw.github.com/akicho8/skk_sts_dic/main/main.png]]
 
@@ -8,7 +8,7 @@
 
 ** 概要
 
-- [[https://github.com/the-broken-tile/translate-the-spire][Slay The Spire - Bulgarian Localization (Community)]] の日本語訳がベース
+- [[https://github.com/the-broken-tile/translate-the-spire][Slay the Spire - Bulgarian Localization (Community)]] の日本語訳がベース
 
 ** インストール例
 
