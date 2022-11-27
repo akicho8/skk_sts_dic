@@ -34,5 +34,7 @@
 
 ** 辞書生成方法
 
-   $ setup
-   $ rake generate
+#+BEGIN_SRC sh
+$ setup
+$ rake generate
+#+END_SRC
