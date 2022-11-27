@@ -10,6 +10,7 @@ module SkkStsDic
       str = str.gsub(/ヴィ/, "ビ")
       str = str.gsub(/ヴー/, "ブー")
       str = str.gsub(/ヴォ/, "ボ")
+      str = str.gsub(/\s+/, "")
       if str.match?(/\A[\p{Hiragana}]+\z/)
         return str
       end
