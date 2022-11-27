@@ -16,7 +16,7 @@
 $ curl -o ~/.dic/SKK-JISYO.sts.dic https://raw.githubusercontent.com/akicho8/skk_sts_dic/master/SKK-JISYO.sts.dic
 #+END_SRC
 
-    ダウンロードした辞書を =~/.skk= の =skk-search-prog-list= に指定する
+ダウンロードした辞書を =~/.skk= で指定する
 
 #+BEGIN_SRC elisp
 (setq skk-search-prog-list
