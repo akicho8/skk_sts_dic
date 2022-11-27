@@ -22,7 +22,7 @@ $ curl -o ~/.dic/SKK-JISYO.sts.dic https://raw.githubusercontent.com/akicho8/skk
 (setq skk-search-prog-list
   '(
     ...
-    (skk-search-jisyo-file "~/.dic/SKK-JISYO.sts.dic" 0)
+    (skk-search-jisyo-file "~/.dic/SKK-JISYO.sts.dic" 10000)
     ...
   ))
 #+END_SRC
