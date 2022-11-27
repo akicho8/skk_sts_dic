@@ -12,10 +12,9 @@
 
 *** DDSKK の場合
 
-   : % cd ~/.dic
-   : % curl -O https://raw.githubusercontent.com/akicho8/skk_sts_dic/master/SKK-JISYO.sts.dic
+    : $ curl -o ~/.dic/SKK-JISYO.sts.dic https://raw.githubusercontent.com/akicho8/skk_sts_dic/master/SKK-JISYO.sts.dic
 
-   ダウンロードした辞書を =~/.skk= の =skk-search-prog-list= に指定する
+    ダウンロードした辞書を =~/.skk= の =skk-search-prog-list= に指定する
 
 #+BEGIN_SRC elisp
 (setq skk-search-prog-list
