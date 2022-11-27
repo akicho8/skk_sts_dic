@@ -1,5 +1,7 @@
 * Slay The Spire 用語辞書
 
+[[file:https://www.shogi-extend.com/cpu-battle][file:https://raw.github.com/akicho8/skk_sts_dic/main/main.png]]
+
 ** 辞書ファイル
 
    [[https://github.com/akicho8/skk_sts_dic/blob/master/SKK-JISYO.sts.dic][SKK-JISYO.sts.dic]]
