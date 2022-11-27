@@ -14,9 +14,11 @@ module SkkStsDic
       resource_dir.glob("jpn*/*.json") do |e|
         list = JSON.parse(e.read)
         list.each_value do |e|
-          v = e["NAME"].to_s.strip
-          if v != ""
-            @items << v
+          [e["NAME"], e["NAMES"]].flatten.compact.each do |e|
+            v = e.to_s.strip
+            if v != ""
+              @items << v
+            end
           end
         end
       end

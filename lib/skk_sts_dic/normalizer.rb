@@ -8,10 +8,14 @@ module SkkStsDic
       @items = @items.flat_map { |e| e.split(/[:：]/) }
       @items = @items.grep_v(/DEPRECATED/)
       @items = @items.grep_v(/\Aテスト\d+/)
+      @items = @items.grep_v(/[#@]/)
       @items = @items.collect { |e| e.sub(/(スライム)[SML]/, '\1') }
+      @items = @items.collect { |e| e.sub(/(登塔クラス|アセンド)\s*\d+/, '\1') }
+      @items = @items.collect { |e| e.sub(/~(.+)~/, '\1') }
       @items = @items.collect { |e| e.sub(/\(？\)/, "") }
       @items = @items.collect { |e| e.sub(/（？）/, "") }
       @items = @items.collect { |e| e.sub(/\[未使用\]/, "") }
+      @items = @items.collect { |e| e.sub(/\+\z/, "") }
       @items = @items.grep_v(/\Ap{Hiragana}+\z/)
       @items = @items.grep(/\p{Katakana}|\p{Han}/)
       @items = @items.grep_v(/[「」]/)
