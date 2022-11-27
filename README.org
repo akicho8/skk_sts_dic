@@ -2,7 +2,7 @@
 
 ** 辞書ファイル
 
-   [[https://github.com/akicho8/SKK-JISYO.sts/blob/master/SKK-JISYO.sts.dic][SKK-JISYO.sts.dic]]
+   [[https://github.com/akicho8/skk_sts_dic/blob/master/SKK-JISYO.sts.dic][SKK-JISYO.sts.dic]]
 
 ** 概要
 
@@ -13,7 +13,7 @@
 *** DDSKK の場合
 
    : % cd ~/.dic
-   : % curl -O https://raw.githubusercontent.com/akicho8/SKK-JISYO.sts/master/SKK-JISYO.sts.dic
+   : % curl -O https://raw.githubusercontent.com/akicho8/skk_sts_dic/master/SKK-JISYO.sts.dic
 
    ダウンロードした辞書を =~/.skk= の =skk-search-prog-list= に指定する
 
