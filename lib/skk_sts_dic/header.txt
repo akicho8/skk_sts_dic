@@ -1,0 +1,5 @@
+;; -*- coding: euc-jp-unix -*-
+;; (skk-restart)
+;;
+;; okuri-ari entries.
+;; okuri-nasi entries.

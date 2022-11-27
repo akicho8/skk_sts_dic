@@ -1,0 +1,38 @@
+* Slay The Spire 用語辞書
+
+** 辞書ファイル
+
+   [[https://github.com/akicho8/SKK-JISYO.sts/blob/master/SKK-JISYO.sts.dic][SKK-JISYO.sts.dic]]
+
+** 概要
+
+- [[https://github.com/the-broken-tile/translate-the-spire][Slay The Spire - Bulgarian Localization (Community)]] の日本語訳がベース
+
+** インストール例
+
+*** DDSKK の場合
+
+   : % cd ~/.dic
+   : % curl -O https://raw.githubusercontent.com/akicho8/SKK-JISYO.sts/master/SKK-JISYO.sts.dic
+
+   ダウンロードした辞書を =~/.skk= の =skk-search-prog-list= に指定する
+
+#+BEGIN_SRC elisp
+(setq skk-search-prog-list
+  '(
+    ...
+    (skk-search-jisyo-file "~/.dic/SKK-JISYO.sts.dic" 0)
+    ...
+  ))
+#+END_SRC
+
+*** AquaSKK 場合
+
+   - 同様にダウンロード
+   - 「AquaSKK」→「環境設定」→「辞書」→「追加」で指定
+   - 辞書の種類を「SKK 辞書 (EUC-JP)」にする
+
+** 辞書生成方法
+
+   $ setup
+   $ rake generate

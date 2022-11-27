@@ -1,0 +1,6 @@
+#!/bin/sh
+cd $(dirname $0)/../lib/skk_sts_dic
+bundle
+git clone git@github.com:the-broken-tile/translate-the-spire.git
+
+
