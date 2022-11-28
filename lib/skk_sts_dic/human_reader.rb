@@ -12,16 +12,11 @@ module SkkStsDic
       if str.match?(/\A[\p{Katakana}ー]+\z/)
         return hiragana_from(str)
       end
-      begin
-        nm = Natto::MeCab.new("-F%f[7]")
-        list = nm.enum_parse(str)
-        list = list.take_while { |e| !e.is_eos? }
-        str = list.collect(&:feature).join
-        hiragana_from(str)
-      rescue Natto::MeCabError => error
-        warn "skip: #{@text}"
-        ""
-      end
+      nm = Natto::MeCab.new("-F%f[7]")
+      list = nm.enum_parse(str)
+      list = list.take_while { |e| !e.is_eos? }
+      str = list.collect(&:feature).join
+      hiragana_from(str)
     end
 
     private

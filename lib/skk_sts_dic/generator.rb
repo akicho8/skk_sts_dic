@@ -30,17 +30,18 @@ module SkkStsDic
 
     def items_yomigana
       ary = @items - MysteryWord.values
-      @yomi_items = ary.collect { |e|
-        yomi = yomi_for(e)
-        if yomi != ""
-          [yomi, e]
+      @items_hash = ary.each_with_object({}) do |e, a|
+        begin
+          a[yomi_for(e)] = e
+        rescue Natto::MeCabError => error
+          warn "skip: #{e} (#{error})"
         end
-      }.compact.to_h
-      @yomi_items.update(MysteryWord)
+      end
+      @items_hash.update(MysteryWord)
     end
 
     def items_output
-      body = @yomi_items.collect { |yomi, item| "#{yomi} /#{item}/\n" }.sort
+      body = @items_hash.collect { |yomi, item| "#{yomi} /#{item}/\n" }.sort
       puts "count: #{body.count}"
 
       [
