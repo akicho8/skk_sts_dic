@@ -1,5 +1,5 @@
 module SkkStsDic
-  YomiganaHumeiList = {
+  SelfDefined = {
     "おりがみきゃえる"           => "折り紙キャエル",
     "おりずる"                   => "折りズル",
     "さささーぺんとのとうぶ"     => "サ・サ・サーペントの頭部",

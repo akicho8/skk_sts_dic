@@ -1,17 +1,17 @@
 module SkkStsDic
   class Generator
     def generate
-      item_collect
-      item_normalize
-      item_yomigana
-      item_output
+      items_collect
+      items_normalize
+      items_yomigana
+      items_output
     end
 
     private
 
-    def item_collect
+    def items_collect
       @items = []
-      resource_dir.glob("jpn*/*.json") do |e|
+      localization_dir.glob("jpn*/*.json") do |e|
         list = JSON.parse(e.read)
         list.each_value do |e|
           [e["NAME"], e["NAMES"]].flatten.compact.each do |e|
@@ -24,21 +24,22 @@ module SkkStsDic
       end
     end
 
-    def item_normalize
+    def items_normalize
       @items = Normalizer.new(@items).to_a
     end
 
-    def item_yomigana
-      @yomi_items = (@items - YomiganaHumeiList.values).collect { |e|
-        if yomi = yomi_for(e)
+    def items_yomigana
+      ary = @items - SelfDefined.values
+      @yomi_items = ary.collect { |e|
+        yomi = yomi_for(e)
+        if yomi != ""
           [yomi, e]
         end
       }.compact.to_h
-
-      @yomi_items.update(YomiganaHumeiList)
+      @yomi_items.update(SelfDefined)
     end
 
-    def item_output
+    def items_output
       body = @yomi_items.collect { |yomi, item| "#{yomi} /#{item}/\n" }
       str = (Pathname("#{__dir__}/header.txt").readlines + body.sort).join
       output_file.write(str.toeuc)
@@ -54,7 +55,7 @@ module SkkStsDic
       Pathname("#{__dir__}/../../SKK-JISYO.sts.dic").expand_path
     end
 
-    def resource_dir
+    def localization_dir
       Pathname("#{__dir__}/translate-the-spire/localization").expand_path
     end
   end
