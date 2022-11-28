@@ -4,7 +4,8 @@
 
 ** 辞書ファイル
 
-   [[https://github.com/akicho8/skk_sts_dic/blob/master/SKK-JISYO.sts.dic][SKK-JISYO.sts.dic]]
+   - [[https://github.com/akicho8/skk_sts_dic/blob/master/SKK-JISYO.sts.euc-jp.dic][SKK-JISYO.sts.euc-jp.dic]]
+   - [[https://github.com/akicho8/skk_sts_dic/blob/master/SKK-JISYO.sts.utf-8.dic][SKK-JISYO.sts.utf-8.dic]]
 
 ** 概要
 
@@ -15,7 +16,7 @@
 *** DDSKK の場合
 
 #+BEGIN_SRC sh
-$ curl -o ~/.dic/SKK-JISYO.sts.dic https://raw.githubusercontent.com/akicho8/skk_sts_dic/master/SKK-JISYO.sts.dic
+$ curl -o ~/.dic/SKK-JISYO.sts.euc-jp.dic https://raw.githubusercontent.com/akicho8/skk_sts_dic/master/SKK-JISYO.sts.euc-jp.dic
 #+END_SRC
 
 ダウンロードした辞書を =~/.skk= で指定する
@@ -24,7 +25,7 @@ $ curl -o ~/.dic/SKK-JISYO.sts.dic https://raw.githubusercontent.com/akicho8/skk
 (setq skk-search-prog-list
   '(
     ...
-    (skk-search-jisyo-file "~/.dic/SKK-JISYO.sts.dic" 10000)
+    (skk-search-jisyo-file "~/.dic/SKK-JISYO.sts.euc-jp.dic" 10000)
     ...
   ))
 #+END_SRC
