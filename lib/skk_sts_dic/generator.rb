@@ -29,14 +29,14 @@ module SkkStsDic
     end
 
     def items_yomigana
-      ary = @items - SelfDefined.values
+      ary = @items - MysteryWord.values
       @yomi_items = ary.collect { |e|
         yomi = yomi_for(e)
         if yomi != ""
           [yomi, e]
         end
       }.compact.to_h
-      @yomi_items.update(SelfDefined)
+      @yomi_items.update(MysteryWord)
     end
 
     def items_output
