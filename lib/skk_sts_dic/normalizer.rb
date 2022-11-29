@@ -9,15 +9,17 @@ module SkkStsDic
       @items = @items.flat_map { |e| e.split(/[:：]/) }
 
       # 置換
-      @items = @items.collect { |e| e.gsub(/(スライム)[SML]/, '\1') }
-      @items = @items.collect { |e| e.gsub(/(登塔クラス|アセンド)\s*\d+/, '\1') }
-      @items = @items.collect { |e| e.gsub(/~(.+)~/, '\1') }
-      @items = @items.collect { |e| e.gsub(/\(？\)/, "") }
-      @items = @items.collect { |e| e.gsub(/（？）/, "") }
-      @items = @items.collect { |e| e.gsub(/\[未使用\]/, "") }
-      @items = @items.collect { |e| e.gsub(/\+\z/, "") }
-      @items = @items.collect { |e| e.gsub(/！/, "") }
-      @items = @items.collect { |e| e.gsub(/\p{Blank}+/, " ") }
+      @items = @items.collect do | e |
+        e = e.gsub(/(スライム)[SML]/, '\1')
+        e = e.gsub(/(登塔クラス|アセンド)\s*\d+/, '\1')
+        e = e.gsub(/~(.+)~/, '\1')
+        e = e.gsub(/\(？\)/, "")
+        e = e.gsub(/（？）/, "")
+        e = e.gsub(/\[未使用\]/, "")
+        e = e.gsub(/\+\z/, "")
+        e = e.gsub(/！/, "")
+        e = e.gsub(/\p{Blank}+/, " ")
+      end
 
       # 除外
       @items = @items.grep_v(/DEPRECATED/)
