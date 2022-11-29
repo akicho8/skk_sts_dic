@@ -29,7 +29,7 @@ module SkkStsDic
     end
 
     def items_yomigana
-      ary = @items - MysteryWord.values
+      ary = @items - MysteryWord.values - MetaWord.values
       @items_hash = ary.each_with_object({}) do |e, a|
         begin
           a[yomi_for(e)] = e
@@ -37,7 +37,7 @@ module SkkStsDic
           warn "skip: #{e} (#{error})"
         end
       end
-      @items_hash.update(MysteryWord)
+      @items_hash.update(MysteryWord, MetaWord)
     end
 
     def items_output
