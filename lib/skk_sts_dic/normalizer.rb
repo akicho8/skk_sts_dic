@@ -9,17 +9,7 @@ module SkkStsDic
       @items = @items.flat_map { |e| e.split(/[:：]/) }
 
       # 置換
-      @items = @items.collect do | e |
-        e = e.gsub(/(スライム)[SML]/, '\1')
-        e = e.gsub(/(登塔クラス|アセンド)\s*\d+/, '\1')
-        e = e.gsub(/~(.+)~/, '\1')
-        e = e.gsub(/\(？\)/, "")
-        e = e.gsub(/（？）/, "")
-        e = e.gsub(/\[未使用\]/, "")
-        e = e.gsub(/\+\z/, "")
-        e = e.gsub(/！/, "")
-        e = e.gsub(/\p{Blank}+/, " ")
-      end
+      @items = @items.collect(&method(:replace))
 
       # 除外
       @items = @items.grep_v(/DEPRECATED/)
@@ -36,6 +26,20 @@ module SkkStsDic
       @items = @items.collect(&:strip)
       @items.uniq!
       @items
+    end
+
+    private
+
+    def replace(s)
+      s = s.gsub(/(スライム)[SML]/, '\1')
+      s = s.gsub(/(登塔クラス|アセンド)\s*\d+/, '\1')
+      s = s.gsub(/~(.+)~/, '\1')
+      s = s.gsub(/\(？\)/, "")
+      s = s.gsub(/（？）/, "")
+      s = s.gsub(/\[未使用\]/, "")
+      s = s.gsub(/\+\z/, "")
+      s = s.gsub(/！/, "")
+      s = s.gsub(/\p{Blank}+/, " ")
     end
   end
 end
